@@ -1,12 +1,18 @@
-import { renderComponent , expect } from '../test_helper';
+import { renderComponent, expect } from '../test_helper';
 import App from '../../src/components/app';
 
 describe('App', () => {
+  let component;
 
-  it('should shows the correct text ', () => {
+  beforeEach(() => {
+    component = renderComponent(App);
+  });
 
-    const component = renderComponent(App);
+  it('shows a comment box', () => {
+    expect(component.find('.comment-box')).to.exist;
+  });
 
-    expect(component).to.contain('React simple starter');
+  it('shows a comment list', () => {
+    expect(component.find('.comment-list')).to.exist;
   });
 });
